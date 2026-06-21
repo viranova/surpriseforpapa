@@ -1,1 +1,2668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Father's Day Papa | Virat & Samrat</title>
 
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Dancing+Script:wght@500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+    :root{
+      --bg1:#f8efdf;
+      --bg2:#f2e3cc;
+      --bg3:#ead3b6;
+      --paper:#f8eddc;
+      --paper-2:#f2e2c8;
+      --paper-3:#e8cfad;
+      --paper-deep:#ddc09c;
+      --ink:#5a3a29;
+      --soft:#7b5b46;
+      --soft-2:#9a7b64;
+      --rose:#d8b09f;
+      --rose-2:#c99288;
+      --leaf:#8f9a7b;
+      --gold:#b88b58;
+      --gold-2:#d7b37a;
+      --cream:#fffaf3;
+      --white:#ffffff;
+      --line:rgba(99,71,48,.16);
+      --shadow:0 18px 42px rgba(89,60,40,.18);
+      --shadow-soft:0 12px 28px rgba(89,60,40,.14);
+      --shadow-mini:0 8px 18px rgba(89,60,40,.10);
+      --hero-max:1200px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      min-height:100vh;
+      overflow-x:hidden;
+      font-family:'Poppins',sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,.45), transparent 28%),
+        radial-gradient(circle at top right, rgba(255,255,255,.24), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(255,255,255,.22), transparent 24%),
+        linear-gradient(180deg,var(--bg1) 0%, var(--bg2) 48%, var(--bg3) 100%);
+      position:relative;
+    }
+
+    /* =========================================================
+       BACKGROUND PAPER TEXTURE + WATERCOLOR ANIMATION
+    ========================================================= */
+    .bg-stage{
+      position:fixed;
+      inset:0;
+      overflow:hidden;
+      pointer-events:none;
+      z-index:0;
+    }
+
+    .grain{
+      position:absolute;
+      inset:0;
+      opacity:.32;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          rgba(120,95,70,.035) 0px,
+          rgba(120,95,70,.035) 1px,
+          transparent 1px,
+          transparent 4px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          rgba(120,95,70,.02) 0px,
+          rgba(120,95,70,.02) 1px,
+          transparent 1px,
+          transparent 5px
+        );
+      mix-blend-mode:multiply;
+    }
+
+    .wash{
+      position:absolute;
+      border-radius:50%;
+      filter:blur(10px);
+      opacity:.42;
+      animation: floatBlob 15s ease-in-out infinite alternate;
+    }
+
+    .wash.one{
+      width:260px;
+      height:260px;
+      left:-70px;
+      top:70px;
+      background:radial-gradient(circle, rgba(214,182,163,.9) 0%, rgba(214,182,163,.18) 70%, transparent 100%);
+      animation-delay:0s;
+    }
+
+    .wash.two{
+      width:190px;
+      height:190px;
+      right:-25px;
+      top:180px;
+      background:radial-gradient(circle, rgba(212,191,169,.88) 0%, rgba(212,191,169,.16) 70%, transparent 100%);
+      animation-delay:2s;
+    }
+
+    .wash.three{
+      width:220px;
+      height:220px;
+      left:10px;
+      bottom:120px;
+      background:radial-gradient(circle, rgba(225,199,176,.85) 0%, rgba(225,199,176,.16) 70%, transparent 100%);
+      animation-delay:4s;
+    }
+
+    .wash.four{
+      width:170px;
+      height:170px;
+      right:20px;
+      bottom:60px;
+      background:radial-gradient(circle, rgba(233,214,192,.85) 0%, rgba(233,214,192,.15) 70%, transparent 100%);
+      animation-delay:1s;
+    }
+
+    .wash.five{
+      width:130px;
+      height:130px;
+      left:42%;
+      top:22%;
+      background:radial-gradient(circle, rgba(220,190,170,.55) 0%, rgba(220,190,170,.10) 70%, transparent 100%);
+      animation-delay:3s;
+    }
+
+    @keyframes floatBlob{
+      0%{
+        transform:translate3d(0,0,0) scale(1);
+      }
+      50%{
+        transform:translate3d(16px,-18px,0) scale(1.06);
+      }
+      100%{
+        transform:translate3d(-14px,14px,0) scale(.96);
+      }
+    }
+
+    /* =========================================================
+       FLOATING HEARTS / PETALS / SPARKLES
+    ========================================================= */
+    .floating-heart,
+    .floating-petal,
+    .sparkle{
+      position:absolute;
+      pointer-events:none;
+      z-index:1;
+    }
+
+    .floating-heart{
+      color:rgba(173,110,97,.42);
+      font-size:18px;
+      animation: heartFloat linear infinite;
+      filter:drop-shadow(0 2px 3px rgba(80,55,40,.08));
+    }
+
+    .floating-petal{
+      width:16px;
+      height:12px;
+      border-radius:60% 40% 65% 35%;
+      background:linear-gradient(135deg, rgba(228,194,184,.65), rgba(206,163,153,.35));
+      transform:rotate(25deg);
+      animation: petalFloat linear infinite;
+      box-shadow:0 3px 8px rgba(90,60,40,.08);
+    }
+
+    .sparkle{
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:rgba(255,255,255,.85);
+      box-shadow:0 0 10px rgba(255,255,255,.7);
+      animation:sparklePulse 2.4s ease-in-out infinite alternate;
+    }
+
+    @keyframes heartFloat{
+      0%{
+        transform:translateY(0) translateX(0) rotate(0deg) scale(.8);
+        opacity:0;
+      }
+      15%{ opacity:.85; }
+      100%{
+        transform:translateY(-120vh) translateX(30px) rotate(12deg) scale(1.25);
+        opacity:0;
+      }
+    }
+
+    @keyframes petalFloat{
+      0%{
+        transform:translateY(0) translateX(0) rotate(0deg);
+        opacity:0;
+      }
+      15%{ opacity:.85; }
+      100%{
+        transform:translateY(-115vh) translateX(-40px) rotate(160deg);
+        opacity:0;
+      }
+    }
+
+    @keyframes sparklePulse{
+      from{
+        opacity:.2;
+        transform:scale(.5);
+      }
+      to{
+        opacity:1;
+        transform:scale(1.45);
+      }
+    }
+
+    /* =========================================================
+       PAGE LAYOUT
+    ========================================================= */
+    .page{
+      position:relative;
+      z-index:3;
+      width:min(100%, 1280px);
+      margin:0 auto;
+      padding:18px 12px 42px;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:12px 14px;
+      background:rgba(255,249,241,.58);
+      border:1px solid var(--line);
+      border-radius:22px;
+      box-shadow:var(--shadow-soft);
+      backdrop-filter:blur(7px);
+      position:sticky;
+      top:10px;
+      z-index:20;
+    }
+
+    .brand{
+      display:flex;
+      flex-direction:column;
+      min-width:0;
+    }
+
+    .brand .mini{
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:1.8px;
+      color:var(--soft);
+      white-space:nowrap;
+    }
+
+    .brand .title{
+      font-family:'Dancing Script',cursive;
+      font-size:1.6rem;
+      color:var(--ink);
+      line-height:1;
+      margin-top:4px;
+    }
+
+    .nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      justify-content:flex-end;
+    }
+
+    .nav a{
+      text-decoration:none;
+      color:var(--ink);
+      background:linear-gradient(180deg,#fbf3e6,#f1e1c8);
+      border:1px solid var(--line);
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:.9rem;
+      box-shadow:var(--shadow-mini);
+      transition:.25s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .nav a::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+      transform:translateX(-120%);
+      transition:.45s ease;
+    }
+
+    .nav a:hover::before,
+    .nav a.active::before{
+      transform:translateX(120%);
+    }
+
+    .nav a:hover,
+    .nav a.active{
+      transform:translateY(-2px);
+      background:linear-gradient(180deg,#f8ecd9,#edd9bb);
+    }
+
+    .section{
+      margin-top:24px;
+      position:relative;
+    }
+
+    .section-card{
+      position:relative;
+      background:rgba(252,245,236,.78);
+      border:1px solid var(--line);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:18px;
+      overflow:hidden;
+      backdrop-filter: blur(5px);
+    }
+
+    .section-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 10% 14%, rgba(216,177,158,.18), transparent 20%),
+        radial-gradient(circle at 88% 22%, rgba(205,180,152,.16), transparent 20%),
+        radial-gradient(circle at 72% 84%, rgba(228,205,178,.14), transparent 24%);
+      pointer-events:none;
+    }
+
+    .small-tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:linear-gradient(180deg,#f8ecd9,#efdec3);
+      color:#6b4b37;
+      border:1px solid rgba(100,70,50,.12);
+      border-radius:999px;
+      padding:8px 14px;
+      font-size:.88rem;
+      box-shadow:var(--shadow-mini);
+      margin-bottom:14px;
+    }
+
+    .section-title{
+      font-family:'Dancing Script',cursive;
+      color:var(--ink);
+      line-height:1;
+    }
+
+    .section-title.big{
+      font-size:clamp(2.4rem, 8vw, 4.5rem);
+    }
+
+    .section-title.mid{
+      font-size:clamp(2rem, 5vw, 3rem);
+    }
+
+    .lead{
+      color:var(--soft);
+      line-height:1.85;
+      font-size:1rem;
+      margin-top:12px;
+    }
+
+    .divider{
+      width:100%;
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(100,72,50,.24), transparent);
+      margin:18px 0;
+    }
+
+    .btn-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      text-decoration:none;
+      color:#fffaf4;
+      background:linear-gradient(135deg,#8c664c,#6f4d38);
+      padding:13px 18px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 12px 24px rgba(90,60,40,.18);
+      font-weight:500;
+      transition:.28s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .btn::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.24), transparent);
+      transform:translateX(-120%);
+      transition:.45s ease;
+    }
+
+    .btn:hover::before{
+      transform:translateX(120%);
+    }
+
+    .btn:hover{
+      transform:translateY(-2px) scale(1.01);
+    }
+
+    .btn.secondary{
+      background:linear-gradient(135deg,#c89d74,#a97d58);
+      color:#fffaf3;
+    }
+
+    /* =========================================================
+       HERO SECTION
+    ========================================================= */
+    .hero{
+      margin-top:18px;
+    }
+
+    .hero-wrap{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:18px;
+      align-items:start;
+    }
+
+    .hero-photo-shell{
+      position:relative;
+      background:linear-gradient(180deg,#f9efdf,#eddabf);
+      border:1px solid var(--line);
+      border-radius:30px;
+      padding:12px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .hero-photo-shell::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 12% 12%, rgba(255,255,255,.35), transparent 22%),
+        radial-gradient(circle at 88% 86%, rgba(255,255,255,.18), transparent 24%);
+      pointer-events:none;
+    }
+
+    .hero-photo{
+      width:100%;
+      display:block;
+      border-radius:22px;
+      object-fit:cover;
+      max-height:620px;
+      box-shadow:0 12px 28px rgba(70,48,32,.16);
+    }
+
+    .tape{
+      position:absolute;
+      width:92px;
+      height:24px;
+      background:rgba(225,203,177,.58);
+      border:1px solid rgba(130,100,70,.08);
+      border-radius:6px;
+      backdrop-filter:blur(2px);
+      box-shadow:0 4px 10px rgba(70,48,32,.08);
+      z-index:2;
+    }
+
+    .tape.left{
+      top:14px;
+      left:26px;
+      transform:rotate(-8deg);
+    }
+
+    .tape.right{
+      top:14px;
+      right:26px;
+      transform:rotate(8deg);
+    }
+
+    .sticker{
+      position:absolute;
+      z-index:3;
+      background:linear-gradient(180deg,#fffaf2,#f5e5cb);
+      border:1px solid rgba(100,72,50,.12);
+      box-shadow:var(--shadow-mini);
+      color:#7a5a46;
+      border-radius:999px;
+      padding:10px 14px;
+      font-size:.88rem;
+      font-weight:600;
+      animation: stickerBob 3.6s ease-in-out infinite;
+    }
+
+    .sticker.one{
+      left:16px;
+      bottom:18px;
+      transform:rotate(-5deg);
+    }
+
+    .sticker.two{
+      right:16px;
+      bottom:72px;
+      transform:rotate(6deg);
+      animation-delay:1.2s;
+    }
+
+    .sticker.three{
+      right:22px;
+      top:70px;
+      transform:rotate(-6deg);
+      animation-delay:.6s;
+    }
+
+    @keyframes stickerBob{
+      0%,100%{ transform:translateY(0) rotate(-4deg); }
+      50%{ transform:translateY(-6px) rotate(1deg); }
+    }
+
+    .hero-content{
+      display:grid;
+      gap:16px;
+    }
+
+    .quote-box{
+      position:relative;
+      background:linear-gradient(180deg,#f8eddc,#efddc1);
+      border:1px solid rgba(99,71,48,.12);
+      border-radius:24px;
+      padding:16px;
+      box-shadow:var(--shadow-soft);
+      overflow:hidden;
+    }
+
+    .quote-box::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:-7px;
+      height:16px;
+      background:
+        radial-gradient(circle at 10px 0, transparent 11px, #efddc1 12px) repeat-x;
+      background-size:24px 16px;
+      opacity:.95;
+    }
+
+    .pin{
+      position:absolute;
+      width:18px;
+      height:18px;
+      right:14px;
+      top:12px;
+      border-radius:50%;
+      background:linear-gradient(180deg,#d8b184,#b78658);
+      box-shadow:0 2px 4px rgba(0,0,0,.16);
+    }
+
+    .quote{
+      font-family:'Cormorant Garamond',serif;
+      color:#5a3a29;
+      font-size:1.28rem;
+      line-height:1.7;
+      padding-right:18px;
+    }
+
+    .notes-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    .note{
+      position:relative;
+      background:linear-gradient(180deg,#f8ebd6,#efdcc0);
+      border:1px solid rgba(99,71,48,.12);
+      border-radius:18px;
+      padding:16px 14px 14px;
+      box-shadow:var(--shadow-mini);
+      overflow:hidden;
+      min-height:110px;
+      animation: noteFloat 4.6s ease-in-out infinite;
+    }
+
+    .note:nth-child(2){ animation-delay:.7s; }
+    .note:nth-child(3){ animation-delay:1.2s; }
+    .note:nth-child(4){ animation-delay:1.7s; }
+
+    @keyframes noteFloat{
+      0%,100%{ transform:translateY(0); }
+      50%{ transform:translateY(-5px); }
+    }
+
+    .note::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:-7px;
+      height:16px;
+      background:
+        radial-gradient(circle at 10px 0, transparent 11px, #efdcc0 12px) repeat-x;
+      background-size:24px 16px;
+      opacity:.95;
+    }
+
+    .note .mini-pin{
+      position:absolute;
+      width:14px;
+      height:14px;
+      right:12px;
+      top:10px;
+      border-radius:50%;
+      background:linear-gradient(180deg,#d6ae83,#b78659);
+      box-shadow:0 2px 4px rgba(0,0,0,.12);
+    }
+
+    .note .text{
+      font-family:'Dancing Script',cursive;
+      color:#5b3d2b;
+      font-size:1.55rem;
+      line-height:1.18;
+      max-width:92%;
+    }
+
+    /* =========================================================
+       LITTLE POLAROID STRIP UNDER HERO
+    ========================================================= */
+    .mini-strip{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+      margin-top:22px;
+    }
+
+    .polaroid{
+      position:relative;
+      background:linear-gradient(180deg,#fffdf9,#f7eddc);
+      border:1px solid rgba(99,71,48,.12);
+      border-radius:22px;
+      padding:12px 12px 18px;
+      box-shadow:var(--shadow-soft);
+      overflow:hidden;
+      transform:rotate(-1.2deg);
+    }
+
+    .polaroid:nth-child(2){
+      transform:rotate(1.4deg);
+    }
+
+    .polaroid img{
+      width:100%;
+      display:block;
+      border-radius:16px;
+      object-fit:cover;
+      max-height:300px;
+      box-shadow:0 10px 22px rgba(70,48,32,.12);
+    }
+
+    .polaroid .caption{
+      text-align:center;
+      margin-top:12px;
+      font-family:'Dancing Script',cursive;
+      color:#6b4b37;
+      font-size:1.5rem;
+    }
+
+    .polaroid .top-tape{
+      position:absolute;
+      width:76px;
+      height:22px;
+      top:10px;
+      left:50%;
+      transform:translateX(-50%) rotate(-3deg);
+      background:rgba(225,203,177,.6);
+      border-radius:6px;
+      box-shadow:0 4px 8px rgba(70,48,32,.08);
+    }
+
+    /* =========================================================
+       PAPA NOTE SECTION
+    ========================================================= */
+    .letter-card{
+      position:relative;
+      background:linear-gradient(180deg,#f9efde,#f0dec3);
+      border:1px solid rgba(99,71,48,.14);
+      border-radius:26px;
+      padding:18px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .letter-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(214,182,163,.18), transparent 22%),
+        radial-gradient(circle at 86% 26%, rgba(228,206,178,.16), transparent 24%);
+      pointer-events:none;
+    }
+
+    .letter-card .line{
+      width:100%;
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(100,72,50,.18), transparent);
+      margin:14px 0;
+    }
+
+    .letter-text{
+      color:#6d4f3b;
+      line-height:1.95;
+      font-size:1rem;
+      position:relative;
+      z-index:2;
+    }
+
+    .sign{
+      margin-top:16px;
+      display:inline-block;
+      background:linear-gradient(180deg,#f8ebd7,#efdcbf);
+      border:1px solid rgba(99,71,48,.12);
+      border-radius:18px;
+      padding:12px 14px;
+      box-shadow:var(--shadow-mini);
+    }
+
+    .sign .who{
+      font-family:'Dancing Script',cursive;
+      font-size:1.65rem;
+      color:#5a3a29;
+    }
+
+    /* =========================================================
+       SECTION 2 STARTER WRAPPER
+       Memories section Part 2 me continue hogi
+    ========================================================= */
+    #memories{
+      scroll-margin-top:90px;
+    }
+
+    .memory-intro{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:16px;
+      align-items:start;
+    }
+
+    .memory-intro-card{
+      position:relative;
+      background:rgba(252,245,236,.78);
+      border:1px solid var(--line);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:18px;
+      overflow:hidden;
+    }
+
+    .memory-intro-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 14% 16%, rgba(216,177,158,.16), transparent 20%),
+        radial-gradient(circle at 84% 22%, rgba(205,180,152,.14), transparent 20%),
+        radial-gradient(circle at 72% 84%, rgba(228,205,178,.12), transparent 24%);
+      pointer-events:none;
+    }
+
+    .memory-intro .section-title{
+      position:relative;
+      z-index:2;
+    }
+
+    .memory-intro .lead{
+      position:relative;
+      z-index:2;
+    }
+
+    .memory-pill-row{
+      position:relative;
+      z-index:2;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .memory-pill{
+      background:linear-gradient(180deg,#f8ecd9,#efdec3);
+      border:1px solid rgba(100,70,50,.12);
+      border-radius:999px;
+      padding:9px 14px;
+      box-shadow:var(--shadow-mini);
+      color:#6d4d39;
+      font-size:.9rem;
+    }
+
+    /* =========================================================
+       FOOTER BASE
+    ========================================================= */
+    .footer{
+      text-align:center;
+      color:#7a5b47;
+      font-size:.92rem;
+      margin-top:28px;
+      padding-bottom:20px;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+    @media (min-width: 860px){
+      .hero-wrap{
+        grid-template-columns:1.04fr .96fr;
+      }
+
+      .mini-strip{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .memory-intro{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 720px){
+      .topbar{
+        border-radius:18px;
+        padding:10px 12px;
+      }
+
+      .brand .title{
+        font-size:1.35rem;
+      }
+
+      .nav{
+        width:100%;
+        justify-content:flex-start;
+      }
+
+      .nav a{
+        font-size:.84rem;
+        padding:9px 12px;
+      }
+
+      .notes-grid{
+        grid-template-columns:1fr;
+      }
+
+      .quote{
+        font-size:1.12rem;
+      }
+
+      .note .text{
+        font-size:1.42rem;
+      }
+    }
+
+    @media (max-width: 520px){
+      .page{
+        padding:14px 10px 32px;
+      }
+
+      .section-card,
+      .memory-intro-card,
+      .letter-card{
+        border-radius:24px;
+        padding:16px;
+      }
+
+      .hero-photo-shell{
+        border-radius:24px;
+        padding:10px;
+      }
+
+      .hero-photo{
+        border-radius:18px;
+      }
+
+      .sticker{
+        font-size:.78rem;
+        padding:8px 11px;
+      }
+
+      .quote{
+        font-size:1.05rem;
+      }
+
+      .lead{
+        font-size:.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =======================================================
+       BACKGROUND ANIMATION STAGE
+  ======================================================== -->
+  <div class="bg-stage" id="bgStage">
+    <div class="grain"></div>
+    <div class="wash one"></div>
+    <div class="wash two"></div>
+    <div class="wash three"></div>
+    <div class="wash four"></div>
+    <div class="wash five"></div>
+  </div>
+
+  <div class="page">
+
+    <!-- =====================================================
+         TOP NAV
+    ====================================================== -->
+    <header class="topbar">
+      <div class="brand">
+        <span class="mini">Father's Day Special</span>
+        <span class="title">For Our Papa 🤎</span>
+      </div>
+
+      <nav class="nav">
+        <a href="#home" class="active">Home</a>
+        <a href="#memories">Memories</a>
+        <a href="#family">Family</a>
+      </nav>
+    </header>
+
+    <!-- =====================================================
+         HERO / HOME SECTION
+    ====================================================== -->
+    <section class="section hero" id="home">
+      <div class="hero-wrap">
+
+        <!-- LEFT HERO IMAGE -->
+        <div class="hero-photo-shell">
+          <span class="tape left"></span>
+          <span class="tape right"></span>
+
+          <!-- hero.jpg = reference / collage wali image -->
+          <img src="hero.jpg" alt="Father's Day collage" class="hero-photo" />
+
+          <div class="sticker one">Best Dad Ever 🤎</div>
+          <div class="sticker two">My Favorite Superhero ✨</div>
+          <div class="sticker three">I Love You Papa ♡</div>
+        </div>
+
+        <!-- RIGHT HERO CONTENT -->
+        <div class="hero-content">
+          <div class="section-card">
+            <div class="small-tag">Made with love by Virat & Samrat 💌</div>
+
+            <h1 class="section-title big">Happy Father’s Day Papa</h1>
+
+            <p class="lead">
+              Yeh website hum dono ki taraf se aapke liye ek chhota sa surprise hai 🤎  
+              Isme sirf photos nahi, balki humari yaadein, humara respect aur woh saari feelings chipki hui hain
+              jo shayad hum roz words me itni easily nahi bol paate.
+            </p>
+
+            <div class="divider"></div>
+
+            <div class="quote-box">
+              <span class="pin"></span>
+              <p class="quote">
+                “Papa, aap sirf hamare father nahi ho…  
+                aap hamari strength, hamari safety, hamari comfort place aur hamari life ke asli superhero ho.”
+              </p>
+            </div>
+
+            <div class="btn-row">
+              <a href="#memories" class="btn">Open Memories ✨</a>
+              <a href="#family" class="btn secondary">Final Message 💌</a>
+            </div>
+          </div>
+
+          <div class="notes-grid">
+            <div class="note">
+              <span class="mini-pin"></span>
+              <div class="text">Best Dad Ever 🤎</div>
+            </div>
+
+            <div class="note">
+              <span class="mini-pin"></span>
+              <div class="text">I Love You Papa ♡</div>
+            </div>
+
+            <div class="note">
+              <span class="mini-pin"></span>
+              <div class="text">You Are Our Favorite Superhero 🦸‍♂️</div>
+            </div>
+
+            <div class="note">
+              <span class="mini-pin"></span>
+              <div class="text">Thanks for being our always & forever ✨</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- mini polaroid strip -->
+      <div class="mini-strip">
+        <div class="polaroid">
+          <span class="top-tape"></span>
+          <!-- papa.jpg = papa solo photo -->
+          <img src="papa.jpg" alt="Papa photo" />
+          <div class="caption">Our Papa 🤍</div>
+        </div>
+
+        <div class="polaroid">
+          <span class="top-tape"></span>
+          <!-- family.jpg = horizontal family photo -->
+          <img src="family.jpg" alt="Family photo" />
+          <div class="caption">Our Little World ✨</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         LETTER SECTION
+    ====================================================== -->
+    <section class="section">
+      <div class="letter-card">
+        <div class="small-tag">A little note from us 🌼</div>
+        <h2 class="section-title mid">For the man who feels like home</h2>
+
+        <div class="line"></div>
+
+        <p class="letter-text">
+          Papa, aapke saath wali har memory ka ek alag hi warmth hota hai.  
+          Kabhi aapka kandha safe place lagta hai, kabhi aapki daant ke peeche chhupa concern samajh aata hai,
+          aur kabhi bas aapka paas hona hi enough feel hota hai.
+          Shayad hum har baar perfect words me nahi bol paate, lekin itna zaroor hai ki
+          hum dono ke liye aap duniya ke best Papa ho 🤎
+        </p>
+
+        <div class="line"></div>
+
+        <p class="letter-text">
+          Is scrapbook website me humne kuch photos, kuch captions aur bohot saara pyaar chipka diya hai.
+          Bas itna kehna tha ki hum lucky hain ki aap hamare Papa ho.
+          Thank you har sacrifice ke liye, har support ke liye, aur har uss pal ke liye jab aap humare liye
+          silently strong banke khade rahe.
+        </p>
+
+        <div class="sign">
+          <div>With love, always 🤍</div>
+          <div class="who">Virat & Samrat</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         MEMORIES SECTION START
+         Part 2 isi ke niche continue hogi
+    ====================================================== -->
+    <section class="section" id="memories">
+      <div class="memory-intro">
+        <div class="memory-intro-card">
+          <div class="small-tag">Our memory scrapbook 📸</div>
+          <h2 class="section-title mid">Memories with Papa</h2>
+
+          <p class="lead">
+            Har photo ek alag feeling hai.  
+            Kuch me bachpan chipka hai, kuch me shararat, kuch me family wali warmth…  
+            aur sab me Papa ka pyaar.
+          </p>
+
+          <div class="memory-pill-row">
+            <div class="memory-pill">Cute frames ✨</div>
+            <div class="memory-pill">Little hearts 🤍</div>
+            <div class="memory-pill">Our favorite moments 📷</div>
+            <div class="memory-pill">Scrapbook vibes 🌸</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================
+           PART 2 se animated memory frames start honge
+      ========================== -->
+      <div class="memory-grid">
+
+        <!-- =========================================
+             MEMORY CARD 1
+             memory1.jpg = papa + samrat wali photo
+        ========================================== -->
+        <div class="memory-card cute-frame tilt-left">
+          <div class="frame-glow"></div>
+          <div class="frame-stars">
+            <span>✦</span>
+            <span>♡</span>
+            <span>✦</span>
+          </div>
+
+          <div class="frame-tape tape-a"></div>
+          <div class="frame-tape tape-b"></div>
+
+          <div class="frame-shell">
+            <img src="memory1.jpg" alt="Papa and Samrat memory" class="memory-photo" />
+          </div>
+
+          <div class="memory-note">
+            <div class="memory-note-pin"></div>
+            <h3>Our little safe place 🤎</h3>
+            <p>
+              Is photo me sirf ek pose nahi hai… isme woh comfort hai jo sirf Papa ke paas milta hai.
+              Chhota sa frame, simple sa moment, lekin pyaar itna bada ki poori memory warm lagti hai ✨
+            </p>
+          </div>
+
+          <div class="floating-sticker sticker-heart">♡</div>
+          <div class="floating-sticker sticker-mini">best moment</div>
+        </div>
+
+        <!-- =========================================
+             MEMORY CARD 2
+             memory2.jpg = papa + bhai cake wali photo
+        ========================================== -->
+        <div class="memory-card cute-frame tilt-right">
+          <div class="frame-glow"></div>
+          <div class="frame-stars">
+            <span>✦</span>
+            <span>♡</span>
+            <span>✦</span>
+          </div>
+
+          <div class="frame-tape tape-a"></div>
+          <div class="frame-tape tape-b"></div>
+
+          <div class="frame-shell">
+            <img src="memory2.jpg" alt="Papa and younger brother memory" class="memory-photo" />
+          </div>
+
+          <div class="memory-note">
+            <div class="memory-note-pin"></div>
+            <h3>Sweet moments with Papa 🎂</h3>
+            <p>
+              Kuch photos baad me jaake samajh aati hain ki kitni precious thi.  
+              Papa ke saath bita hua har normal sa moment bhi memory bank ka gold piece ban jaata hai 🌼
+            </p>
+          </div>
+
+          <div class="floating-sticker sticker-heart right">♡</div>
+          <div class="floating-sticker sticker-mini right">cutest memory</div>
+        </div>
+
+      </div>
+
+      <!-- =========================================
+           MEMORY LOVE NOTE
+      ========================================== -->
+      <div class="memory-love-card">
+        <div class="small-tag">A note hidden between memories 💌</div>
+        <h2 class="section-title mid">Papa, aapke saath har phase beautiful tha</h2>
+
+        <p class="lead">
+          Bachpan me shayad hume itna samajh nahi tha ki aap kitna kuch silently handle karte ho.  
+          Ab jab peeche mudh ke dekhte hain, toh har smile ke peeche effort dikhai deta hai,  
+          har comfort ke peeche sacrifice, aur har strong moment ke peeche aap.
+        </p>
+
+        <div class="divider"></div>
+
+        <p class="lead" style="margin-top:0;">
+          Isi liye yeh photos bas photos nahi hain… yeh gratitude ka album hain.  
+          Is scrapbook ke har frame me humne woh sab chipkaya hai jo words me pura fit hi nahi hota:
+          respect, warmth, safety, pyaar aur bohot saari yaadein 🤍
+        </p>
+
+        <div class="memory-chip-row">
+          <span class="memory-chip">our hero</span>
+          <span class="memory-chip">home in human form</span>
+          <span class="memory-chip">forever favorite</span>
+          <span class="memory-chip">Papa = comfort</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         FAMILY SECTION START
+         Part 3 me continue hogi
+    ====================================================== -->
+    <section class="section" id="family">
+      <div class="family-intro-card">
+        <div class="small-tag">Final page of our scrapbook 🌼</div>
+        <h2 class="section-title mid">Our Family, Our Papa</h2>
+        <p class="lead">
+          Har family photo me ek ajeeb si sukoon wali feeling hoti hai…  
+          aur us feeling ke center me aap hote ho, Papa 🤎
+        </p>
+      </div>
+
+  <style>
+    /* =========================================================
+       PART 2 STYLES: MEMORIES SECTION + CUTE ANIMATED FRAMES
+    ========================================================= */
+
+    .memory-grid{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:22px;
+    }
+
+    .memory-card{
+      position:relative;
+      padding:16px;
+      border-radius:30px;
+      background:
+        linear-gradient(180deg, rgba(255,250,242,.92), rgba(245,231,210,.92));
+      border:1px solid rgba(100,72,50,.14);
+      box-shadow:0 18px 42px rgba(89,60,40,.16);
+      overflow:hidden;
+      isolation:isolate;
+      transition:transform .35s ease, box-shadow .35s ease;
+    }
+
+    .memory-card:hover{
+      transform:translateY(-4px) scale(1.01);
+      box-shadow:0 22px 48px rgba(89,60,40,.20);
+    }
+
+    .memory-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 12% 16%, rgba(218,184,166,.18), transparent 20%),
+        radial-gradient(circle at 86% 20%, rgba(231,210,186,.16), transparent 22%),
+        radial-gradient(circle at 74% 84%, rgba(220,190,170,.12), transparent 24%);
+      pointer-events:none;
+      z-index:0;
+    }
+
+    .cute-frame{
+      animation:memoryCardFloat 5.5s ease-in-out infinite;
+    }
+
+    .tilt-left{
+      transform:rotate(-1deg);
+    }
+
+    .tilt-right{
+      transform:rotate(1deg);
+      animation-delay:1s;
+    }
+
+    @keyframes memoryCardFloat{
+      0%,100%{
+        transform:translateY(0) rotate(-1deg);
+      }
+      50%{
+        transform:translateY(-6px) rotate(.2deg);
+      }
+    }
+
+    .tilt-right.cute-frame{
+      animation-name:memoryCardFloatRight;
+    }
+
+    @keyframes memoryCardFloatRight{
+      0%,100%{
+        transform:translateY(0) rotate(1deg);
+      }
+      50%{
+        transform:translateY(-6px) rotate(-.15deg);
+      }
+    }
+
+    .frame-glow{
+      position:absolute;
+      inset:18px;
+      border-radius:28px;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,.65), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(255,255,255,.3), transparent 24%);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,.24),
+        0 0 28px rgba(219,188,166,.26);
+      pointer-events:none;
+      z-index:1;
+    }
+
+    .frame-stars{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      z-index:4;
+    }
+
+    .frame-stars span{
+      position:absolute;
+      color:#d3a68f;
+      font-size:18px;
+      animation:starBlink 2.8s ease-in-out infinite;
+      filter:drop-shadow(0 2px 4px rgba(80,55,40,.08));
+    }
+
+    .frame-stars span:nth-child(1){
+      left:18px;
+      top:20px;
+      animation-delay:0s;
+    }
+
+    .frame-stars span:nth-child(2){
+      right:20px;
+      top:34px;
+      font-size:20px;
+      animation-delay:.8s;
+    }
+
+    .frame-stars span:nth-child(3){
+      left:26px;
+      bottom:112px;
+      animation-delay:1.4s;
+    }
+
+    @keyframes starBlink{
+      0%,100%{
+        transform:scale(.85) rotate(0deg);
+        opacity:.4;
+      }
+      50%{
+        transform:scale(1.18) rotate(8deg);
+        opacity:1;
+      }
+    }
+
+    .frame-tape{
+      position:absolute;
+      width:88px;
+      height:24px;
+      background:rgba(226,204,178,.62);
+      border:1px solid rgba(120,90,64,.08);
+      border-radius:6px;
+      box-shadow:0 4px 10px rgba(70,48,32,.08);
+      z-index:4;
+      backdrop-filter:blur(1px);
+    }
+
+    .tape-a{
+      top:18px;
+      left:24px;
+      transform:rotate(-8deg);
+    }
+
+    .tape-b{
+      top:18px;
+      right:24px;
+      transform:rotate(8deg);
+    }
+
+    .frame-shell{
+      position:relative;
+      z-index:2;
+      padding:12px;
+      border-radius:26px;
+      background:linear-gradient(180deg,#fffdf9,#f5ead8);
+      border:1px solid rgba(100,72,50,.12);
+      box-shadow:0 12px 26px rgba(79,53,37,.12);
+    }
+
+    .frame-shell::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:26px;
+      padding:2px;
+      background:linear-gradient(135deg, rgba(255,255,255,.7), rgba(216,180,160,.28), rgba(255,255,255,.65));
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite:xor;
+              mask-composite:exclude;
+      pointer-events:none;
+    }
+
+    .memory-photo{
+      width:100%;
+      display:block;
+      border-radius:20px;
+      object-fit:cover;
+      max-height:520px;
+      box-shadow:0 12px 24px rgba(70,48,32,.12);
+      transition:transform .35s ease;
+    }
+
+    .memory-card:hover .memory-photo{
+      transform:scale(1.025);
+    }
+
+    .memory-note{
+      position:relative;
+      z-index:3;
+      margin-top:14px;
+      padding:16px 16px 15px;
+      border-radius:22px;
+      background:linear-gradient(180deg,#f7ead6,#efdcc0);
+      border:1px solid rgba(100,72,50,.12);
+      box-shadow:0 10px 20px rgba(79,53,37,.10);
+      overflow:hidden;
+    }
+
+    .memory-note::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:-7px;
+      height:16px;
+      background:
+        radial-gradient(circle at 10px 0, transparent 11px, #efdcc0 12px) repeat-x;
+      background-size:24px 16px;
+      opacity:.96;
+    }
+
+    .memory-note-pin{
+      position:absolute;
+      width:16px;
+      height:16px;
+      right:14px;
+      top:12px;
+      border-radius:50%;
+      background:linear-gradient(180deg,#d9b184,#b78658);
+      box-shadow:0 2px 4px rgba(0,0,0,.14);
+    }
+
+    .memory-note h3{
+      font-family:'Dancing Script',cursive;
+      font-size:1.85rem;
+      color:#5a3a29;
+      margin-bottom:8px;
+      padding-right:20px;
+    }
+
+    .memory-note p{
+      color:#6e503c;
+      line-height:1.82;
+      font-size:.98rem;
+    }
+
+    .floating-sticker{
+      position:absolute;
+      z-index:5;
+      box-shadow:0 8px 16px rgba(70,48,32,.10);
+      animation:stickerDance 3.8s ease-in-out infinite;
+      user-select:none;
+    }
+
+    .sticker-heart{
+      left:18px;
+      bottom:22px;
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg,#fff8ef,#f5e3c7);
+      color:#c58b82;
+      font-size:20px;
+      border:1px solid rgba(100,72,50,.12);
+    }
+
+    .sticker-heart.right{
+      left:auto;
+      right:18px;
+      bottom:22px;
+      animation-delay:.9s;
+    }
+
+    .sticker-mini{
+      right:20px;
+      bottom:26px;
+      background:linear-gradient(180deg,#fffaf2,#f5e5cb);
+      color:#7a5a46;
+      border:1px solid rgba(100,72,50,.12);
+      border-radius:999px;
+      padding:9px 13px;
+      font-size:.82rem;
+      font-weight:600;
+    }
+
+    .sticker-mini.right{
+      right:auto;
+      left:18px;
+      bottom:76px;
+      animation-delay:1.1s;
+    }
+
+    @keyframes stickerDance{
+      0%,100%{
+        transform:translateY(0) rotate(-4deg);
+      }
+      50%{
+        transform:translateY(-6px) rotate(2deg);
+      }
+    }
+
+    .memory-love-card{
+      margin-top:22px;
+      position:relative;
+      padding:18px;
+      border-radius:28px;
+      background:linear-gradient(180deg, rgba(251,244,235,.92), rgba(241,226,202,.94));
+      border:1px solid rgba(100,72,50,.14);
+      box-shadow:0 18px 42px rgba(89,60,40,.14);
+      overflow:hidden;
+    }
+
+    .memory-love-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(216,177,158,.18), transparent 20%),
+        radial-gradient(circle at 86% 22%, rgba(231,210,186,.14), transparent 22%),
+        radial-gradient(circle at 72% 84%, rgba(220,190,170,.12), transparent 24%);
+      pointer-events:none;
+    }
+
+    .memory-love-card .section-title,
+    .memory-love-card .lead,
+    .memory-love-card .small-tag{
+      position:relative;
+      z-index:2;
+    }
+
+    .memory-chip-row{
+      position:relative;
+      z-index:2;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .memory-chip{
+      background:linear-gradient(180deg,#f8ecd9,#efdec3);
+      color:#6d4d39;
+      border:1px solid rgba(100,70,50,.12);
+      border-radius:999px;
+      padding:10px 14px;
+      box-shadow:0 8px 16px rgba(79,53,37,.08);
+      font-size:.88rem;
+    }
+
+    /* =========================================================
+       FAMILY INTRO CARD STARTER
+       actual family photo / final note Part 3 me continue hoga
+    ========================================================= */
+    .family-intro-card{
+      position:relative;
+      padding:18px;
+      border-radius:28px;
+      background:rgba(252,245,236,.78);
+      border:1px solid rgba(100,72,50,.14);
+      box-shadow:0 18px 42px rgba(89,60,40,.14);
+      overflow:hidden;
+    }
+
+    .family-intro-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 12% 16%, rgba(218,184,166,.18), transparent 20%),
+        radial-gradient(circle at 86% 20%, rgba(231,210,186,.16), transparent 22%),
+        radial-gradient(circle at 74% 84%, rgba(220,190,170,.12), transparent 24%);
+      pointer-events:none;
+    }
+
+    .family-intro-card .small-tag,
+    .family-intro-card .section-title,
+    .family-intro-card .lead{
+      position:relative;
+      z-index:2;
+    }
+
+    /* =========================================================
+       RESPONSIVE FOR MEMORY PART
+    ========================================================= */
+    @media (min-width: 920px){
+      .memory-grid{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media (max-width: 560px){
+      .memory-card,
+      .memory-love-card,
+      .family-intro-card{
+        padding:14px;
+        border-radius:24px;
+      }
+
+      .frame-shell{
+        padding:10px;
+        border-radius:22px;
+      }
+
+      .memory-photo{
+        border-radius:16px;
+      }
+
+      .memory-note{
+        border-radius:18px;
+        padding:14px 14px 13px;
+      }
+
+      .memory-note h3{
+        font-size:1.55rem;
+      }
+
+      .memory-note p{
+        font-size:.94rem;
+      }
+
+      .frame-tape{
+        width:72px;
+        height:20px;
+      }
+
+      .sticker-mini{
+        font-size:.76rem;
+        padding:8px 11px;
+      }
+    }
+  </style> 
+           <!-- =========================================
+           FAMILY MAIN SCRAPBOOK CARD
+           family.jpg = horizontal family photo
+      ========================================== -->
+      <div class="family-main-card">
+        <div class="family-paper family-paper-left">
+          <span>made with love</span>
+        </div>
+
+        <div class="family-paper family-paper-right">
+          <span>our forever home 🤎</span>
+        </div>
+
+        <div class="family-photo-wrap">
+          <div class="family-photo-frame">
+            <img src="family.jpg" alt="Our family photo with Papa" class="family-photo" />
+          </div>
+        </div>
+
+        <div class="family-text">
+          <h3>Together, everything feels complete ✨</h3>
+          <p>
+            Family photo dekhte hi ek alag hi warmth feel hoti hai. Isme sirf faces nahi hote,
+            isme poori kahaani hoti hai. Har smile ke peeche moments hote hain, har pose ke peeche
+            comfort hota hai, aur har comfort ke center me aap hote ho, Papa.
+          </p>
+
+          <p>
+            Humari family ka strongest part sirf ghar nahi… aap ho.  
+            Aapka presence hi woh cheez hai jo normal days ko safe banata hai,
+            difficult days ko manageable banata hai, aur achhe days ko aur beautiful bana deta hai.
+          </p>
+        </div>
+
+        <div class="family-badges">
+          <span class="family-badge">Papa = peace</span>
+          <span class="family-badge">Papa = support</span>
+          <span class="family-badge">Papa = strength</span>
+          <span class="family-badge">Papa = home</span>
+        </div>
+      </div>
+
+      <!-- =========================================
+           FINAL LETTER TO PAPA
+      ========================================== -->
+      <div class="final-letter-card">
+        <div class="letter-top-decor">
+          <span>♡</span>
+          <span>✦</span>
+          <span>♡</span>
+        </div>
+
+        <div class="small-tag center">A message straight from our hearts 💌</div>
+        <h2 class="section-title mid">For Our Papa</h2>
+
+        <div class="letter-body">
+          <p>
+            Papa,  
+            aapke liye “thank you” bolna bohot chhota lagta hai, kyunki aapne humare liye jo kiya hai
+            uska scale words se bohot bada hai. Aapne sirf hume raise nahi kiya, aapne hume protect kiya,
+            guide kiya, support kiya aur bina shor kiye humare liye har roz khade rahe.
+          </p>
+
+          <p>
+            Kabhi strict banke, kabhi silent support banke, kabhi shield banke aur kabhi motivation banke,
+            aapne har role itne naturally nibhaya ki shayad bachpan me hume samajh hi nahi aaya
+            ki hum kitne lucky hain. Ab jab memories ko dekhte hain, toh har photo me aapka pyaar visible lagta hai.
+          </p>
+
+          <p>
+            Hume aapse bohot kuch seekhne ko mila hai — zimmedari, strength, patience, family ko first rakhna,
+            aur bina show-off ke sabke liye present rehna. Agar hum kabhi life me strong ban paaye,
+            grounded rahe, ya kisi ke liye reliable ban paaye… usme aapka hi reflection hoga.
+          </p>
+
+          <p>
+            Papa, aap sirf humare father nahi ho.  
+            Aap humare hero ho, humari comfort place ho, humari respect ho, aur humari life ke sabse important people me se ek ho.
+            Hum aapse bohot pyaar karte hain 🤎
+          </p>
+        </div>
+
+        <div class="signature-box">
+          <div class="sign-line"></div>
+          <div class="signature-text">
+            <span>With all our love,</span>
+            <h3>Virat & Samrat</h3>
+            <p>Happy Father’s Day, Papa 🌼</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================
+           FINAL POSTER / TRIBUTE CARD
+           poster.jpg = reference-style fathers day scrapbook photo
+      ========================================== -->
+      <div class="poster-tribute-card">
+        <div class="poster-header">
+          <div class="small-tag">One last page for the best Papa 🤍</div>
+          <h2 class="section-title mid">Our Father’s Day Tribute</h2>
+        </div>
+
+        <div class="poster-wrap">
+          <div class="poster-frame">
+            <img src="poster.jpg" alt="Father's Day tribute poster for Papa" class="poster-photo" />
+          </div>
+
+          <div class="poster-shine"></div>
+          <div class="poster-flower flower-a">✿</div>
+          <div class="poster-flower flower-b">✿</div>
+          <div class="poster-heart heart-a">♡</div>
+          <div class="poster-heart heart-b">♡</div>
+        </div>
+
+        <p class="poster-note">
+          Yeh last page ek simple ending nahi hai, yeh poori website ka heart hai.  
+          Isme hum dono ka pyaar, gratitude aur Papa ke liye respect ek scrapbook tribute ki tarah collect kiya gaya hai ✨
+        </p>
+      </div>
+
+      <!-- =========================================
+           ENDING CLOSING QUOTE
+      ========================================== -->
+      <div class="closing-quote-card">
+        <p class="closing-line">
+          “Some heroes don’t wear capes…  
+          they quietly become the reason their family feels safe, loved and complete.”
+        </p>
+        <h3>Happy Father’s Day, Papa 🤎</h3>
+        <span>Made with love by Virat & Samrat</span>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       FLOATING DECOR
+  ========================================================== -->
+  <div class="floating-petals">
+    <span class="petal p1">✿</span>
+    <span class="petal p2">✿</span>
+    <span class="petal p3">♡</span>
+    <span class="petal p4">✦</span>
+    <span class="petal p5">✿</span>
+    <span class="petal p6">♡</span>
+  </div>
+
+  <!-- =========================================================
+       MUSIC BUTTON
+       Song link apna dal sakta hai baad me
+  ========================================================== -->
+  <button class="music-toggle" id="musicToggle" aria-label="Toggle music">
+    ♫
+  </button>
+
+  <audio id="bgMusic" loop>
+    <!-- agar chahe to yaha apni mp3 ka naam dal de -->
+    <!-- <source src="music.mp3" type="audio/mpeg"> -->
+  </audio>
+
+  <script>
+    /* =========================================================
+       MOBILE NAV TOGGLE
+    ========================================================= */
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if(navToggle && mobileMenu){
+      navToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('show');
+      });
+    }
+
+    /* =========================================================
+       SCROLL PROGRESS
+    ========================================================= */
+    const progressBar = document.getElementById('progressBar');
+
+    function updateProgressBar(){
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      if(progressBar){
+        progressBar.style.width = progress + '%';
+      }
+    }
+
+    window.addEventListener('scroll', updateProgressBar);
+    updateProgressBar();
+
+    /* =========================================================
+       ACTIVE NAV LINK ON SCROLL
+    ========================================================= */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link, .mobile-link');
+
+    function setActiveLink(){
+      let current = '';
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 140;
+        const sectionHeight = section.offsetHeight;
+        if(window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight){
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href');
+        if(href === '#' + current){
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', setActiveLink);
+    setActiveLink();
+
+    /* =========================================================
+       CLOSE MOBILE MENU AFTER CLICK
+    ========================================================= */
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if(mobileMenu){
+          mobileMenu.classList.remove('show');
+        }
+      });
+    });
+
+    /* =========================================================
+       REVEAL ON SCROLL
+    ========================================================= */
+    const revealItems = document.querySelectorAll(
+      '.hero-card, .hero-image-card, .message-card, .memory-card, .memory-love-card, .family-main-card, .final-letter-card, .poster-tribute-card, .closing-quote-card, .family-intro-card'
+    );
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('reveal-show');
+        }
+      });
+    }, {
+      threshold: 0.14
+    });
+
+    revealItems.forEach(item => {
+      item.classList.add('reveal-init');
+      revealObserver.observe(item);
+    });
+
+    /* =========================================================
+       PARALLAX FOR BACKGROUND BLOB / PAPER FEEL
+    ========================================================= */
+    const watercolorBlobs = document.querySelectorAll('.watercolor-blob');
+
+    function parallaxBlobs(){
+      const sc = window.scrollY;
+      watercolorBlobs.forEach((blob, index) => {
+        const speed = (index + 1) * 0.06;
+        blob.style.transform = `translateY(${sc * speed}px)`;
+      });
+    }
+
+    window.addEventListener('scroll', parallaxBlobs);
+
+    /* =========================================================
+       FLOATING HEARTS / PETALS GENERATOR
+    ========================================================= */
+    function createFloatingHeart(){
+      const heart = document.createElement('div');
+      heart.className = 'generated-heart';
+      heart.innerHTML = Math.random() > 0.5 ? '♡' : '✦';
+
+      const size = Math.random() * 14 + 12;
+      heart.style.fontSize = size + 'px';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 5 + 6) + 's';
+      heart.style.opacity = (Math.random() * 0.45 + 0.2).toFixed(2);
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 12000);
+    }
+
+    setInterval(createFloatingHeart, 2200);
+
+    /* =========================================================
+       MUSIC BUTTON
+    ========================================================= */
+    const musicToggle = document.getElementById('musicToggle');
+    const bgMusic = document.getElementById('bgMusic');
+    let musicPlaying = false;
+
+    if(musicToggle && bgMusic){
+      musicToggle.addEventListener('click', () => {
+        if(!musicPlaying){
+          bgMusic.play().catch(() => {});
+          musicPlaying = true;
+          musicToggle.classList.add('playing');
+          musicToggle.textContent = '♫';
+        }else{
+          bgMusic.pause();
+          musicPlaying = false;
+          musicToggle.classList.remove('playing');
+          musicToggle.textContent = '♫';
+        }
+      });
+    }
+
+    /* =========================================================
+       LITTLE SPARKLE EFFECT ON BUTTONS
+    ========================================================= */
+    const buttons = document.querySelectorAll('.hero-btn, .music-toggle');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('mouseenter', () => {
+        btn.classList.add('sparkle-now');
+      });
+
+      btn.addEventListener('animationend', () => {
+        btn.classList.remove('sparkle-now');
+      });
+    });
+
+    /* =========================================================
+       AUTO TYPE SMALL ENDING LINE
+    ========================================================= */
+    const quoteCard = document.querySelector('.closing-line');
+
+    if(quoteCard){
+      const originalText = quoteCard.textContent.trim();
+      quoteCard.textContent = '';
+
+      let i = 0;
+      function typeLine(){
+        if(i < originalText.length){
+          quoteCard.textContent += originalText.charAt(i);
+          i++;
+          setTimeout(typeLine, 28);
+        }
+      }
+
+      setTimeout(typeLine, 500);
+    }
+  </script>
+
+  <style>
+    /* =========================================================
+       PART 3 STYLES
+       FAMILY + FINAL LETTER + POSTER + JS REVEAL HELPERS
+    ========================================================= */
+
+    .family-main-card{
+      position:relative;
+      margin-top:18px;
+      padding:18px;
+      border-radius:30px;
+      background:
+        linear-gradient(180deg, rgba(255,249,241,.95), rgba(243,228,206,.95));
+      border:1px solid rgba(100,72,50,.14);
+      box-shadow:0 20px 48px rgba(89,60,40,.15);
+      overflow:hidden;
+      isolation:isolate;
+    }
+
+    .family-main-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 14% 18%, rgba(216,177,158,.18), transparent 22%),
+        radial-gradient(circle at 86% 20%, rgba(231,210,186,.18), transparent 24%),
+        radial-gradient(circle at 74% 84%, rgba(220,190,170,.14), transparent 24%);
+      pointer-events:none;
+      z-index:0;
+    }
+
+    .family-paper{
+      position:absolute;
+      z-index:3;
+      background:linear-gradient(180deg,#f8ecd8,#efdcc0);
+      border:1px solid rgba(100,72,50,.10);
+      box-shadow:0 8px 18px rgba(70,48,32,.10);
+      color:#6b4a38;
+      font-size:.78rem;
+      padding:10px 12px;
+      border-radius:14px;
+      transform:rotate(-6deg);
+    }
+
+    .family-paper span{
+      font-family:'Dancing Script',cursive;
+      font-size:1.15rem;
+    }
+
+    .family-paper-left{
+      left:16px;
+      top:18px;
+    }
+
+    .family-paper-right{
+      right:16px;
+      top:22px;
+      transform:rotate(7deg);
+    }
+
+    .family-photo-wrap{
+      position:relative;
+      z-index:2;
+      margin-top:28px;
+    }
+
+    .family-photo-frame{
+      position:relative;
+      padding:12px;
+      border-radius:28px;
+      background:linear-gradient(180deg,#fffdf9,#f5ead8);
+      border:1px solid rgba(100,72,50,.12);
+      box-shadow:0 14px 28px rgba(79,53,37,.12);
+      overflow:hidden;
+    }
+
+    .family-photo-frame::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:28px;
+      padding:2px;
+      background:linear-gradient(135deg, rgba(255,255,255,.75), rgba(216,180,160,.25), rgba(255,255,255,.72));
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite:xor;
+              mask-composite:exclude;
+      pointer-events:none;
+    }
+
+    .family-photo{
+      width:100%;
+      display:block;
+      border-radius:20px;
+      object-fit:cover;
+      max-height:420px;
+      box-shadow:0 12px 24px rgba(70,48,32,.10);
+    }
+
+    .family-text{
+      position:relative;
+      z-index:2;
+      margin-top:18px;
+      padding:16px;
+      border-radius:24px;
+      background:rgba(255,252,246,.74);
+      border:1px solid rgba(100,72,50,.10);
+      box-shadow:0 12px 24px rgba(79,53,37,.08);
+    }
+
+    .family-text h3{
+      font-family:'Dancing Script',cursive;
+      font-size:2rem;
+      color:#5d3d2d;
+      margin-bottom:10px;
+      text-align:center;
+    }
+
+    .family-text p{
+      color:#6e503c;
+      line-height:1.9;
+      font-size:.98rem;
+      margin-bottom:12px;
+      text-align:center;
+    }
+
+    .family-text p:last-child{
+      margin-bottom:0;
+    }
+
+    .family-badges{
+      position:relative;
+      z-index:2;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    .family-badge{
+      background:linear-gradient(180deg,#f8ecd9,#efdec3);
+      color:#6d4d39;
+      border:1px solid rgba(100,70,50,.12);
+      border-radius:999px;
+      padding:10px 14px;
+      box-shadow:0 8px 16px rgba(79,53,37,.08);
+      font-size:.88rem;
+      animation:badgeFloat 4.5s ease-in-out infinite;
+    }
+
+    .family-badge:nth-child(2){ animation-delay:.5s; }
+    .family-badge:nth-child(3){ animation-delay:1s; }
+    .family-badge:nth-child(4){ animation-delay:1.5s; }
+
+    @keyframes badgeFloat{
+      0%,100%{ transform:translateY(0); }
+      50%{ transform:translateY(-5px); }
+    }
+
+    /* FINAL LETTER */
+    .final-letter-card{
+      position:relative;
+      margin-top:24px;
+      padding:20px 18px;
+      border-radius:30px;
+      background:
+        linear-gradient(180deg, rgba(251,244,235,.95), rgba(241,226,202,.95));
+      border:1px solid rgba(100,72,50,.14);
+      box-shadow:0 20px 48px rgba(89,60,40,.14);
+      overflow:hidden;
+    }
+
+    .final-letter-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(216,177,158,.18), transparent 20%),
+        radial-gradient(circle at 86% 22%, rgba(231,210,186,.14), transparent 22%),
+        radial-gradient(circle at 72% 84%, rgba(220,190,170,.12), transparent 24%);
+      pointer-events:none;
+    }
+
+    .letter-top-decor{
+      position:relative;
+      z-index:2;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      margin-bottom:8px;
+      color:#c7968c;
+      font-size:1.15rem;
+      animation:letterGlow 3.4s ease-in-out infinite;
+    }
+
+    @keyframes letterGlow{
+      0%,100%{ opacity:.6; transform:translateY(0); }
+      50%{ opacity:1; transform:translateY(-4px); }
+    }
+
+    .center{
+      text-align:center;
+      display:block;
+      margin-inline:auto;
+    }
+
+    .letter-body{
+      position:relative;
+      z-index:2;
+      margin-top:10px;
+      padding:18px;
+      border-radius:24px;
+      background:rgba(255,252,247,.76);
+      border:1px solid rgba(100,72,50,.10);
+      box-shadow:0 12px 24px rgba(79,53,37,.08);
+    }
+
+    .letter-body p{
+      color:#6e503c;
+      line-height:1.95;
+      font-size:1rem;
+      margin-bottom:14px;
+      text-align:center;
+    }
+
+    .letter-body p:last-child{
+      margin-bottom:0;
+    }
+
+    .signature-box{
+      position:relative;
+      z-index:2;
+      margin-top:20px;
+      padding-top:10px;
+      text-align:center;
+    }
+
+    .sign-line{
+      width:120px;
+      height:2px;
+      margin:0 auto 12px;
+      background:linear-gradient(90deg, transparent, #b78a67, transparent);
+      border-radius:999px;
+    }
+
+    .signature-text span{
+      display:block;
+      color:#8b6952;
+      font-size:.95rem;
+      margin-bottom:4px;
+    }
+
+    .signature-text h3{
+      font-family:'Dancing Script',cursive;
+      font-size:2rem;
+      color:#5d3d2d;
+      margin-bottom:6px;
+    }
+
+    .signature-text p{
+      color:#7a5a46;
+      font-size:.96rem;
+      margin:0;
+    }
+
+    /* POSTER CARD */
+    .poster-tribute-card{
+      position:relative;
+      margin-top:24px;
+      padding:18px;
+      border-radius:30px;
+      background:
+        linear-gradient(180deg, rgba(255,250,244,.95), rgba(242,228,207,.95));
+      border:1px solid rgba(100,72,50,.14);
+      box-shadow:0 20px 48px rgba(89,60,40,.14);
+      overflow:hidden;
+      isolation:isolate;
+    }
+
+    .poster-wrap{
+      position:relative;
+      margin-top:14px;
+      z-index:2;
+    }
+
+    .poster-frame{
+      position:relative;
+      padding:12px;
+      border-radius:28px;
+      background:linear-gradient(180deg,#fffdf9,#f5ead8);
+      border:1px solid rgba(100,72,50,.12);
+      box-shadow:0 14px 28px rgba(79,53,37,.12);
+      overflow:hidden;
+    }
+
+    .poster-frame::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:28px;
+      padding:2px;
+      background:linear-gradient(135deg, rgba(255,255,255,.75), rgba(216,180,160,.25), rgba(255,255,255,.72));
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite:xor;
+              mask-composite:exclude;
+      pointer-events:none;
+    }
+
+    .poster-photo{
+      width:100%;
+      display:block;
+      border-radius:20px;
+      object-fit:cover;
+      box-shadow:0 12px 24px rgba(70,48,32,.10);
+    }
+
+    .poster-shine{
+      position:absolute;
+      top:0;
+      left:-55%;
+      width:42%;
+      height:100%;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.34), transparent);
+      transform:skewX(-18deg);
+      animation:posterShine 5s ease-in-out infinite;
+      pointer-events:none;
+      z-index:3;
+    }
+
+    @keyframes posterShine{
+      0%{ left:-55%; }
+      55%{ left:125%; }
+      100%{ left:125%; }
+    }
+
+    .poster-flower,
+    .poster-heart{
+      position:absolute;
+      z-index:4;
+      color:#d4a692;
+      text-shadow:0 8px 18px rgba(70,48,32,.12);
+      animation:posterFloat 4s ease-in-out infinite;
+      pointer-events:none;
+    }
+
+    .flower-a{
+      left:8px;
+      bottom:14px;
+      font-size:1.5rem;
+    }
+
+    .flower-b{
+      right:10px;
+      top:12px;
+      font-size:1.35rem;
+      animation-delay:1s;
+    }
+
+    .heart-a{
+      left:14px;
+      top:16px;
+      font-size:1.1rem;
+      animation-delay:.6s;
+    }
+
+    .heart-b{
+      right:16px;
+      bottom:16px;
+      font-size:1.15rem;
+      animation-delay:1.4s;
+    }
+
+    @keyframes posterFloat{
+      0%,100%{ transform:translateY(0) rotate(0deg); opacity:.85; }
+      50%{ transform:translateY(-7px) rotate(6deg); opacity:1; }
+    }
+
+    .poster-note{
+      position:relative;
+      z-index:2;
+      margin-top:16px;
+      color:#6f503c;
+      line-height:1.85;
+      text-align:center;
+      font-size:.98rem;
+      padding:0 4px;
+    }
+
+    /* CLOSING QUOTE */
+    .closing-quote-card{
+      position:relative;
+      margin-top:24px;
+      padding:24px 18px;
+      border-radius:28px;
+      text-align:center;
+      background:
+        linear-gradient(180deg, rgba(248,238,225,.96), rgba(239,221,194,.96));
+      border:1px solid rgba(100,72,50,.12);
+      box-shadow:0 18px 40px rgba(89,60,40,.12);
+      overflow:hidden;
+    }
+
+    .closing-quote-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(216,177,158,.18), transparent 22%),
+        radial-gradient(circle at 82% 26%, rgba(231,210,186,.16), transparent 22%);
+      pointer-events:none;
+    }
+
+    .closing-line,
+    .closing-quote-card h3,
+    .closing-quote-card span{
+      position:relative;
+      z-index:2;
+    }
+
+    .closing-line{
+      color:#6b4b37;
+      line-height:1.9;
+      font-size:1.05rem;
+      margin-bottom:14px;
+      min-height:72px;
+    }
+
+    .closing-quote-card h3{
+      font-family:'Dancing Script',cursive;
+      font-size:2.15rem;
+      color:#5b3b2b;
+      margin-bottom:6px;
+    }
+
+    .closing-quote-card span{
+      color:#876650;
+      font-size:.95rem;
+    }
+
+    /* FLOATING DECOR */
+    .floating-petals{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:0;
+      overflow:hidden;
+    }
+
+    .petal{
+      position:absolute;
+      color:rgba(205,158,145,.55);
+      animation:petalDrift linear infinite;
+      user-select:none;
+    }
+
+    .p1{ left:6%; top:-10%; font-size:20px; animation-duration:14s; }
+    .p2{ left:24%; top:-12%; font-size:16px; animation-duration:18s; animation-delay:2s; }
+    .p3{ left:45%; top:-8%; font-size:18px; animation-duration:15s; animation-delay:4s; }
+    .p4{ left:64%; top:-11%; font-size:14px; animation-duration:16s; animation-delay:1s; }
+    .p5{ left:82%; top:-12%; font-size:19px; animation-duration:17s; animation-delay:3s; }
+    .p6{ left:92%; top:-10%; font-size:16px; animation-duration:19s; animation-delay:5s; }
+
+    @keyframes petalDrift{
+      0%{
+        transform:translateY(-10vh) translateX(0) rotate(0deg);
+        opacity:0;
+      }
+      10%{ opacity:.8; }
+      100%{
+        transform:translateY(120vh) translateX(-28px) rotate(180deg);
+        opacity:0;
+      }
+    }
+
+    .generated-heart{
+      position:fixed;
+      bottom:-30px;
+      color:rgba(205,158,145,.55);
+      pointer-events:none;
+      z-index:2;
+      animation:heartRise linear forwards;
+      filter:drop-shadow(0 8px 18px rgba(70,48,32,.10));
+    }
+
+    @keyframes heartRise{
+      0%{
+        transform:translateY(0) translateX(0) scale(.8) rotate(0deg);
+        opacity:0;
+      }
+      10%{
+        opacity:1;
+      }
+      100%{
+        transform:translateY(-120vh) translateX(20px) scale(1.2) rotate(30deg);
+        opacity:0;
+      }
+    }
+
+    /* MUSIC BUTTON */
+    .music-toggle{
+      position:fixed;
+      right:16px;
+      bottom:18px;
+      z-index:50;
+      width:54px;
+      height:54px;
+      border:none;
+      border-radius:50%;
+      cursor:pointer;
+      font-size:1.25rem;
+      color:#fffaf3;
+      background:linear-gradient(180deg,#c79679,#a66f55);
+      box-shadow:0 14px 28px rgba(92,58,40,.28);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+
+    .music-toggle:hover{
+      transform:translateY(-3px) scale(1.03);
+      box-shadow:0 18px 32px rgba(92,58,40,.32);
+    }
+
+    .music-toggle.playing{
+      animation:musicPulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes musicPulse{
+      0%,100%{ transform:scale(1); }
+      50%{ transform:scale(1.08); }
+    }
+
+    /* REVEAL ANIMATION */
+    .reveal-init{
+      opacity:0;
+      transform:translateY(28px) scale(.98);
+      transition:opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal-show{
+      opacity:1;
+      transform:translateY(0) scale(1);
+    }
+
+    /* BUTTON SPARKLE */
+    .sparkle-now{
+      animation:buttonSparkle .8s ease;
+    }
+
+    @keyframes buttonSparkle{
+      0%{
+        box-shadow:0 0 0 rgba(255,255,255,0);
+      }
+      50%{
+        box-shadow:0 0 28px rgba(255,255,255,.35);
+      }
+      100%{
+        box-shadow:0 0 0 rgba(255,255,255,0);
+      }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px){
+      .family-main-card,
+      .final-letter-card,
+      .poster-tribute-card,
+      .closing-quote-card{
+        padding:16px;
+        border-radius:24px;
+      }
+
+      .family-paper{
+        font-size:.72rem;
+        padding:8px 10px;
+      }
+
+      .family-paper span{
+        font-size:1rem;
+      }
+
+      .family-photo-frame,
+      .poster-frame{
+        padding:10px;
+        border-radius:22px;
+      }
+
+      .family-photo,
+      .poster-photo{
+        border-radius:16px;
+      }
+
+      .family-text{
+        border-radius:20px;
+        padding:14px;
+      }
+
+      .family-text h3{
+        font-size:1.7rem;
+      }
+
+      .family-text p,
+      .letter-body p,
+      .poster-note{
+        font-size:.95rem;
+        line-height:1.82;
+      }
+
+      .letter-body{
+        padding:14px;
+        border-radius:20px;
+      }
+
+      .signature-text h3{
+        font-size:1.8rem;
+      }
+
+      .closing-quote-card h3{
+        font-size:1.9rem;
+      }
+
+      .closing-line{
+        min-height:90px;
+        font-size:1rem;
+      }
+
+      .music-toggle{
+        width:50px;
+        height:50px;
+        right:14px;
+        bottom:16px;
+      }
+    }
+
+    @media (max-width: 480px){
+      .family-badges{
+        gap:8px;
+      }
+
+      .family-badge{
+        font-size:.8rem;
+        padding:9px 12px;
+      }
+
+      .family-paper-left{
+        left:10px;
+        top:12px;
+      }
+
+      .family-paper-right{
+        right:10px;
+        top:14px;
+      }
+
+      .poster-note{
+        padding:0;
+      }
+
+      .closing-line{
+        min-height:110px;
+      }
+    }
+  </style>
+</body>
+</html> 
